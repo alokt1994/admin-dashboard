@@ -1,23 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.scss";
+import Paper from "@mui/material/Paper";
+import Button from "react-bootstrap/Button";
+import Card from "react-bootstrap/Card";
+import Login from "./Auth/login";
+import Pages from "./Pages/Pages";
+import { Navigate, Route, Routes } from "react-router-dom";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Routes>
+        <Route
+          path="/"
+          element={<Navigate to="/login" replace={true} />}
+        ></Route>
+        <Route path="/login" element={<Login />}></Route>
+        <Route path="/pages" element={<Pages />}></Route>
+      </Routes>
     </div>
   );
 }
